@@ -1,0 +1,2 @@
+ - import_tasks: esxi-disable-broken-kernel-modules.yml
+   tags: esxi-disable-broken-kernel-modules

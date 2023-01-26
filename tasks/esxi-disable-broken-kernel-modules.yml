@@ -1,0 +1,10 @@
+- name: Create blacklist
+  copy:
+    content: |
+      blacklist i2c-piix4
+    dest: /etc/modprobe.d/esxi-disable-broken-modules.conf
+  register: esxi_disable_broken_modules
+
+- name: Update initramfs
+  shell: update-initramfs -u
+  when: esxi_disable_broken_modules is changed
